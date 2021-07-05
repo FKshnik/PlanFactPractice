@@ -41,13 +41,13 @@ namespace PlanFactPractice.Utilities
 			}
 			
 			if (ValuesTable.ContainsKey(dateRange.StartDate.AddDays(-1).ToString("yyyy-MM-dd")))
-            {
+			{
 				foreach (var keyValuePair in 
 					ValuesTable.Where(kv => DateTime.ParseExact(kv.Key, "yyyy-MM-dd", System.Globalization.CultureInfo.InvariantCulture) < dateRange.StartDate).ToList())
-                {
+				{
 					ValuesTable.Remove(keyValuePair.Key);
-                }
-            }
+				}
+			}
 			stopwatch.Stop();
 
 			return new { valuesTable = JsonConvert.SerializeObject(ValuesTable), orderInfo = JsonConvert.SerializeObject(OrderInfo), elapsedTime = stopwatch.ElapsedMilliseconds };
@@ -105,7 +105,7 @@ namespace PlanFactPractice.Utilities
 						double previousValue = ValuesTable[markerDate.AddDays(-1).ToString("yyyy-MM-dd")][AccountsInfo.IndexOf(accountInfo)];
 						
 						if (!AccountsOperations[index].Details.Any())
-                        {
+						{
 							ValuesTable[dateString].Add(previousValue);
 							continue;
 						}
@@ -117,10 +117,10 @@ namespace PlanFactPractice.Utilities
 							else
 								ValuesTable[dateString].Add(previousValue + AccountsOperations[index].Details[0].PlanValue);
 						}
-                        else
-                        {
+						else
+						{
 							ValuesTable[dateString].Add(previousValue);
-                        }
+						}
 					}
 				}
 			}

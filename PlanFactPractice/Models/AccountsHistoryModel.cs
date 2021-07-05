@@ -33,8 +33,8 @@ namespace PlanFactPractice.Models
 		}
 
 		public static AccountsHistoryModel GetAccountsHistory()
-        {
+		{
 			return JsonConvert.DeserializeObject<AccountsHistoryModel>(RequestSender.SendGetRequest("api/v1/bizinfos/accountshistory").Content.ReadAsStringAsync().Result);
-        }
+		}
 	}
 }

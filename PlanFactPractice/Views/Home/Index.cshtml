@@ -30,7 +30,7 @@
 					}).done(function (data) {
 						chartMaker(JSON.parse(data.content.valuesTable), JSON.parse(data.content.orderInfo));
 						//window.location.href = '@Url.Action("Index", "Home")';
-                        document.getElementsByTagName('p')[0].textContent = `Elapsed data prep time: ${data.content.elapsedTime}ms`;
+						document.getElementsByTagName('p')[0].textContent = `Elapsed data prep time: ${data.content.elapsedTime}ms`;
 					});
 				});
 			});
@@ -52,7 +52,7 @@
 				});
 			});
 
-            startDate.dispatchEvent(new Event('change', { 'bubbles': true }));
+			startDate.dispatchEvent(new Event('change', { 'bubbles': true }));
 
 			/**
 			 * 
@@ -106,7 +106,7 @@
 							series.fillOpacity = 0.2;
 							series.stroke = am4core.color('#00aa00');
 							series.fill = am4core.color('#00ff00');
-                        }
+						}
 					}
 					chart.cursor = new am4charts.XYCursor();
 					//chart.cursor.snapToSeries = series;
@@ -115,8 +115,8 @@
 					chart.scrollbarX = new am4core.Scrollbar();
 
 					var range = dateAxis.axisRanges.create();
-                    range.date = new Date(new Date().toISOString().slice(0, 10));
-                    range.grid.stroke = am4core.color("#0000aa");
+					range.date = new Date(new Date().toISOString().slice(0, 10));
+					range.grid.stroke = am4core.color("#0000aa");
 					range.grid.strokeWidth = 2;
 					range.grid.strokeDasharray = '3,4';
 					range.grid.strokeOpacity = 1;
